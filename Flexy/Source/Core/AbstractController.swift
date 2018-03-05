@@ -43,7 +43,7 @@ open class AbstractController: NSObject {
         viewBinders.removeValue(forKey: binder.modelType)
     }
     
-    public final func reuseCell<CellType: Flexy.View>(for index: Flexy.Index, from cellProvider: CellProvider) throws -> CellType {
+    public final func reuseCell<CellType: Flexy.View>(for index: Flexy.Index, from cellProvider: CellProvider) -> CellType {
         let model = itemModels[index.item]
         
         guard let viewBinder = self.viewBinders[model.itemId] else {
