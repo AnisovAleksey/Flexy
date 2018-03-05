@@ -12,4 +12,6 @@ public protocol CellProvider: class {
     func reuseCell(for indexPath: IndexPath, with type: String) -> UIView
     
     func register(type: AnyClass, forId id: String)
+    
+    func unregister(id: String)
 }

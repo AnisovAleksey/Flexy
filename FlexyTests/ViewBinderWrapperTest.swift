@@ -71,31 +71,6 @@ class ViewBinderWrapperTest: XCTestCase {
             }
         }
     }
-    
-    func test_registerCellToCellProvider() {
-        // Given
-        let cellProvider = TestCellProvider()
-        
-        // When
-        wrapper.registerType(to: cellProvider)
-
-        // Then
-        XCTAssertTrue(cellProvider.registered!.0 == UITableViewCell.self)
-        XCTAssertEqual(cellProvider.registered!.1, "UITableViewCell")
-    }
-    
-    func test_registerCellToCellProviderWithCustomIdentifier() {
-        // Given
-        let cellProvider = TestCellProvider()
-        let wrapper = ViewBinderWrapper(viewBinder: IdentifiedViewBinder())
-        
-        // When
-        wrapper.registerType(to: cellProvider)
-        
-        // Then
-        XCTAssertTrue(cellProvider.registered!.0 == UITableViewCell.self)
-        XCTAssertEqual(cellProvider.registered!.1, "ID")
-    }
 }
 
 
@@ -104,16 +79,6 @@ private class TestViewBinder: ViewBinder {
     
     func bind(model: TestItemModel, to cell: UITableViewCell) {
         binded = true
-    }
-}
-
-private class IdentifiedViewBinder: ViewBinder {
-    func bind(model: TestItemModel, to cell: UITableViewCell) {
-        // no-op
-    }
-    
-    var cellIdentifier: String {
-        return "ID"
     }
 }
 
@@ -130,6 +95,10 @@ private class TestCellProvider: CellProvider {
     
     func register(type: AnyClass, forId id: String) {
         registered = (type, id)
+    }
+    
+    func unregister(id: String) {
+        
     }
     
     func reuseCell(for indexPath: IndexPath, with type: String) -> UIView {

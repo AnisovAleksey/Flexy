@@ -27,7 +27,7 @@ open class AbstractController: NSObject {
         guard let cellProvider = cellProvider else {
             throw ViewBinderRegistrationError.cellProviderNotAvailable
         }
-        binderWrapper.registerType(to: cellProvider)
+        cellProvider.register(type: binderWrapper.cellType, forId: binderWrapper.cellIdentifier)
         viewBinders[key] = binderWrapper
     }
     
@@ -40,7 +40,8 @@ open class AbstractController: NSObject {
     }
     
     public final func unregister<VB: ViewBinder>(binder: VB) {
-        viewBinders.removeValue(forKey: binder.cellIdentifier)
+        cellProvider?.unregister(id: binder.cellIdentifier)
+        viewBinders.removeValue(forKey: binder.modelType)
     }
     
     public final func reuseCell<CellType: UIView>(for indexPath: IndexPath, from cellProvider: CellProvider) throws -> CellType {

@@ -11,9 +11,9 @@ import UIKit
 protocol _ViewBinder {
     func tryToBind<CellType: UIView>(model: ItemModel, to view: CellType) throws -> CellType
     
-    func registerType(to cellProvider: CellProvider)
-    
     var cellIdentifier: String { get }
+    
+    var cellType: AnyClass { get }
 }
 
 final class ViewBinderWrapper<Binder: ViewBinder>: _ViewBinder {
@@ -37,12 +37,12 @@ final class ViewBinderWrapper<Binder: ViewBinder>: _ViewBinder {
         return view
     }
     
-    func registerType(to cellProvider: CellProvider) {
-        cellProvider.register(type: Binder.Cell.self, forId: cellIdentifier)
-    }
-    
     var cellIdentifier: String {
         return viewBinder.cellIdentifier
+    }
+    
+    var cellType: AnyClass {
+        return Binder.Cell.self
     }
 }
 

@@ -69,6 +69,33 @@ class AbstractControllerTest: XCTestCase {
             }
         }
     }
+    
+    func test_successRegistrationBinderWithCustomCellId() {
+        // Given
+        let binder = IdentifiedViewBinder()
+        
+        // When
+        try! controller._register(binder: binder)
+        
+        // Then
+        XCTAssertTrue(cellProvider.registered!.0 == UITableViewCell.self)
+        XCTAssertTrue(cellProvider.registered!.1 == "ID")
+        XCTAssertTrue(controller.viewBinders.contains(where: { $0.key == binder.modelType }))
+    }
+    
+    func test_unregisterBinder() {
+        // Given
+        let binder = TestViewBinder()
+        
+        // When
+        try! controller._register(binder: binder)
+        controller.unregister(binder: binder)
+        
+        // Then
+        XCTAssertTrue(cellProvider.registered!.1 == "UITableViewCell")
+        XCTAssertTrue(cellProvider.unregistered! == "UITableViewCell")
+        XCTAssertFalse(controller.viewBinders.contains(where: { $0.key == binder.modelType }))
+    }
 }
 
 
@@ -87,12 +114,29 @@ private struct TestItemModel: ItemModel {
 
 private class TestCellProvider: CellProvider {
     var registered: (AnyClass, String)?
+    var unregistered: (String)?
     
     func register(type: AnyClass, forId id: String) {
         registered = (type, id)
     }
     
+    func unregister(id: String) {
+        unregistered = id
+    }
+    
     func reuseCell(for indexPath: IndexPath, with type: String) -> UIView {
         return UIView()
+    }
+}
+
+
+
+private class IdentifiedViewBinder: ViewBinder {
+    func bind(model: TestItemModel, to cell: UITableViewCell) {
+        // no-op
+    }
+    
+    var cellIdentifier: String {
+        return "ID"
     }
 }
