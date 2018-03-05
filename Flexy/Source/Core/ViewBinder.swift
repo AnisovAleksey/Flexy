@@ -15,14 +15,20 @@ public protocol ViewBinder {
     var modelType: String { get }
     
     var cellIdentifier: String { get }
+    
+    var shouldRegisterCells: Bool { get }
 }
 
 extension ViewBinder {
-    var modelType: String {
+    public var modelType: String {
         return Model.itemId
     }
     
-    var cellIdentifier: String {
+    public var cellIdentifier: String {
         return String(describing: Cell.self)
+    }
+    
+    public var shouldRegisterCells: Bool {
+        return false
     }
 }

@@ -8,19 +8,30 @@
 
 import UIKit
 
-class SimpleTableController: AbstractController, UITableViewDelegate, UITableViewDataSource {
+public class SimpleTableController: AbstractController, UITableViewDelegate, UITableViewDataSource {
+    private weak var tableView: UITableView?
     
-    init(tableView: UITableView) {
-        super.init()
-        
-        cellProvider = tableView
+    public override var itemModels: [ItemModel] {
+        didSet {
+            tableView?.reloadData()
+        }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public init(tableView: UITableView) {
+        super.init()
+        
+        self.tableView = tableView
+        self.cellProvider = tableView
+        
+        self.tableView?.delegate = self
+        self.tableView?.dataSource = self
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemModels.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return reuseCell(for: Flexy.Index(section: indexPath.section, item: indexPath.row), from: tableView)
     }
 }

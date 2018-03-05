@@ -26,7 +26,9 @@ open class AbstractController: NSObject {
         guard let cellProvider = cellProvider else {
             throw ViewBinderRegistrationError.cellProviderNotAvailable
         }
-        cellProvider.register(type: binderWrapper.cellType, forId: binderWrapper.cellIdentifier)
+        if binder.shouldRegisterCells {
+            cellProvider.register(type: binderWrapper.cellType, forId: binderWrapper.cellIdentifier)
+        }
         viewBinders[key] = binderWrapper
     }
     
@@ -39,7 +41,9 @@ open class AbstractController: NSObject {
     }
     
     public final func unregister<VB: ViewBinder>(binder: VB) {
-        cellProvider?.unregister(id: binder.cellIdentifier)
+        if (binder.shouldRegisterCells) {
+            cellProvider?.unregister(id: binder.cellIdentifier)
+        }
         viewBinders.removeValue(forKey: binder.modelType)
     }
     

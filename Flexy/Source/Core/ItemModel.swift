@@ -13,11 +13,11 @@ public protocol ItemModel {
 }
 
 extension ItemModel {
-    static var itemId: String {
+    public static var itemId: String {
         return String(describing: self)
     }
     
-    var itemId: String {
+    public var itemId: String {
         return type(of: self).itemId
     }
 }

@@ -19,7 +19,19 @@ class AbstractControllerTest: XCTestCase {
         controller.cellProvider = cellProvider
     }
     
-    func test_successBinderRegistration() {
+    func test_successBinderRegistrationWithCellRegistration() {
+        // Given
+        let binder = TestViewBinder(shouldRegisterCells: true)
+        
+        // When
+        try! controller._register(binder: binder)
+        
+        // Then
+        XCTAssertTrue(cellProvider.registered!.0 == UITableViewCell.self)
+        XCTAssertTrue(controller.viewBinders.contains(where: { $0.key == binder.modelType }))
+    }
+    
+    func test_successBinderRegistrationWithoutCellRegistration() {
         // Given
         let binder = TestViewBinder()
         
@@ -27,7 +39,7 @@ class AbstractControllerTest: XCTestCase {
         try! controller._register(binder: binder)
         
         // Then
-        XCTAssertTrue(cellProvider.registered!.0 == UITableViewCell.self)
+        XCTAssertTrue(cellProvider.registered == nil)
         XCTAssertTrue(controller.viewBinders.contains(where: { $0.key == binder.modelType }))
     }
     
@@ -85,7 +97,7 @@ class AbstractControllerTest: XCTestCase {
     
     func test_unregisterBinder() {
         // Given
-        let binder = TestViewBinder()
+        let binder = TestViewBinder(shouldRegisterCells: true)
         
         // When
         try! controller._register(binder: binder)
@@ -96,12 +108,31 @@ class AbstractControllerTest: XCTestCase {
         XCTAssertTrue(cellProvider.unregistered! == "UITableViewCell")
         XCTAssertFalse(controller.viewBinders.contains(where: { $0.key == binder.modelType }))
     }
+    
+    func test_unregisterBinderWihtoutUnregisterCell() {
+        // Given
+        let binder = TestViewBinder()
+        
+        // When
+        try! controller._register(binder: binder)
+        controller.unregister(binder: binder)
+        
+        // Then
+        XCTAssertTrue(cellProvider.registered == nil)
+        XCTAssertTrue(cellProvider.unregistered == nil)
+        XCTAssertFalse(controller.viewBinders.contains(where: { $0.key == binder.modelType }))
+        
+    }
 }
 
 
 private class TestViewBinder: ViewBinder {
-    
+    let shouldRegisterCells: Bool
     var binded: Bool = false
+    
+    init(shouldRegisterCells: Bool = false) {
+        self.shouldRegisterCells = shouldRegisterCells
+    }
     
     func bind(model: TestItemModel, to cell: UITableViewCell) {
         binded = true
@@ -138,5 +169,9 @@ private class IdentifiedViewBinder: ViewBinder {
     
     var cellIdentifier: String {
         return "ID"
+    }
+    
+    var shouldRegisterCells: Bool {
+        return true
     }
 }
