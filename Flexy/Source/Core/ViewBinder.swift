@@ -6,11 +6,9 @@
 //  Copyright © 2018 Aleksey Anisov. All rights reserved.
 //
 
-import UIKit
-
 public protocol ViewBinder {
     associatedtype Model: ItemModel
-    associatedtype Cell: UIView
+    associatedtype Cell: Flexy.View
     
     func bind(model: Model, to cell: Cell)
     

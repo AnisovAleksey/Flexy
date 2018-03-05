@@ -100,8 +100,8 @@ private class TestCellProvider: CellProvider {
     func unregister(id: String) {
         
     }
-    
-    func reuseCell(for indexPath: IndexPath, with type: String) -> UIView {
-        return UIView()
+
+    func reuseCell(for index: Flexy.Index, with type: String) -> Flexy.View {
+        return Flexy.View()
     }
 }

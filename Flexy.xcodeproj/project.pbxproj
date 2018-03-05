@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1FF5C40E2049BC2900AE00FB /* Flexy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF5C4042049BC2900AE00FB /* Flexy.framework */; };
-		1FF5C4152049BC2900AE00FB /* Flexy.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF5C4072049BC2900AE00FB /* Flexy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FF5C4222049BD0500AE00FB /* ViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C4212049BD0500AE00FB /* ViewBinder.swift */; };
 		1FF5C4242049BD3600AE00FB /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C4232049BD3600AE00FB /* ItemModel.swift */; };
 		1FF5C4262049BD5200AE00FB /* CellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C4252049BD5200AE00FB /* CellProvider.swift */; };
@@ -18,6 +17,9 @@
 		1FF5C42F2049C39200AE00FB /* ViewBinderWrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C42E2049C39200AE00FB /* ViewBinderWrapperTest.swift */; };
 		1FF5C4312049CB1300AE00FB /* _ViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C4302049CB1300AE00FB /* _ViewBinder.swift */; };
 		1FF5C4352049D7DA00AE00FB /* AbstractControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C4342049D7DA00AE00FB /* AbstractControllerTest.swift */; };
+		54F3BA3F204CED1B00E4BC45 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3BA3E204CED1B00E4BC45 /* View.swift */; };
+		54F3BA41204CEDCA00E4BC45 /* Flexy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3BA40204CEDCA00E4BC45 /* Flexy.swift */; };
+		54F3BA43204CEE4900E4BC45 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3BA42204CEE4900E4BC45 /* Index.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +34,6 @@
 
 /* Begin PBXFileReference section */
 		1FF5C4042049BC2900AE00FB /* Flexy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flexy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FF5C4072049BC2900AE00FB /* Flexy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Flexy.h; sourceTree = "<group>"; };
 		1FF5C4082049BC2900AE00FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FF5C40D2049BC2900AE00FB /* FlexyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlexyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FF5C4142049BC2900AE00FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +46,9 @@
 		1FF5C42E2049C39200AE00FB /* ViewBinderWrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBinderWrapperTest.swift; sourceTree = "<group>"; };
 		1FF5C4302049CB1300AE00FB /* _ViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ViewBinder.swift; sourceTree = "<group>"; };
 		1FF5C4342049D7DA00AE00FB /* AbstractControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractControllerTest.swift; sourceTree = "<group>"; };
+		54F3BA3E204CED1B00E4BC45 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		54F3BA40204CEDCA00E4BC45 /* Flexy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flexy.swift; sourceTree = "<group>"; };
+		54F3BA42204CEE4900E4BC45 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +111,6 @@
 		1FF5C41E2049BC8800AE00FB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1FF5C4072049BC2900AE00FB /* Flexy.h */,
 				1FF5C4082049BC2900AE00FB /* Info.plist */,
 			);
 			path = Resources;
@@ -118,6 +121,7 @@
 			children = (
 				1FF5C42B2049C22400AE00FB /* Util */,
 				1FF5C4202049BCF900AE00FB /* Core */,
+				54F3BA40204CEDCA00E4BC45 /* Flexy.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -130,6 +134,8 @@
 				1FF5C4232049BD3600AE00FB /* ItemModel.swift */,
 				1FF5C4252049BD5200AE00FB /* CellProvider.swift */,
 				1FF5C4272049BD8A00AE00FB /* AbstractController.swift */,
+				54F3BA3E204CED1B00E4BC45 /* View.swift */,
+				54F3BA42204CEE4900E4BC45 /* Index.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -149,7 +155,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FF5C4152049BC2900AE00FB /* Flexy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +263,9 @@
 				1FF5C42D2049C23E00AE00FB /* TextError.swift in Sources */,
 				1FF5C4242049BD3600AE00FB /* ItemModel.swift in Sources */,
 				1FF5C4222049BD0500AE00FB /* ViewBinder.swift in Sources */,
+				54F3BA43204CEE4900E4BC45 /* Index.swift in Sources */,
+				54F3BA3F204CED1B00E4BC45 /* View.swift in Sources */,
+				54F3BA41204CEDCA00E4BC45 /* Flexy.swift in Sources */,
 				1FF5C4282049BD8A00AE00FB /* AbstractController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +418,7 @@
 				INFOPLIST_FILE = Flexy/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.anisov.Flexy;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -433,6 +442,7 @@
 				INFOPLIST_FILE = Flexy/Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.anisov.Flexy;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

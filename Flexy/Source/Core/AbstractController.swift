@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 open class AbstractController: NSObject {
     internal var viewBinders: [String: _ViewBinder] = [:]
@@ -44,14 +43,14 @@ open class AbstractController: NSObject {
         viewBinders.removeValue(forKey: binder.modelType)
     }
     
-    public final func reuseCell<CellType: UIView>(for indexPath: IndexPath, from cellProvider: CellProvider) throws -> CellType {
-        let model = itemModels[indexPath.row]
+    public final func reuseCell<CellType: Flexy.View>(for index: Flexy.Index, from cellProvider: CellProvider) throws -> CellType {
+        let model = itemModels[index.item]
         
         guard let viewBinder = self.viewBinders[model.itemId] else {
             fatalError("Can't find ViewBinder for key '\(model.itemId)'")
         }
         
-        guard let cell = cellProvider.reuseCell(for: indexPath, with: viewBinder.cellIdentifier) as? CellType else {
+        guard let cell = cellProvider.reuseCell(for: index, with: viewBinder.cellIdentifier) as? CellType else {
             fatalError("Can't reuse cell with passed CellType: \(CellType.self)")
         }
         

@@ -6,10 +6,9 @@
 //  Copyright © 2018 Aleksey Anisov. All rights reserved.
 //
 
-import UIKit
 
 protocol _ViewBinder {
-    func tryToBind<CellType: UIView>(model: ItemModel, to view: CellType) throws -> CellType
+    func tryToBind<CellType: Flexy.View>(model: ItemModel, to view: CellType) throws -> CellType
     
     var cellIdentifier: String { get }
     
@@ -23,7 +22,7 @@ final class ViewBinderWrapper<Binder: ViewBinder>: _ViewBinder {
         self.viewBinder = viewBinder
     }
     
-    func tryToBind<CellType: UIView>(model: ItemModel, to view: CellType) throws -> CellType {
+    func tryToBind<CellType: Flexy.View>(model: ItemModel, to view: CellType) throws -> CellType {
         guard let castedModel: Binder.Model = model as? Binder.Model else {
             throw ViewBinderError.incorrectModelType(type(of: self))
         }

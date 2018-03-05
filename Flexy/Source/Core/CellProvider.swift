@@ -6,10 +6,8 @@
 //  Copyright © 2018 Aleksey Anisov. All rights reserved.
 //
 
-import UIKit
-
 public protocol CellProvider: class {
-    func reuseCell(for indexPath: IndexPath, with type: String) -> UIView
+    func reuseCell(for index: Flexy.Index, with type: String) -> Flexy.View
     
     func register(type: AnyClass, forId id: String)
     
