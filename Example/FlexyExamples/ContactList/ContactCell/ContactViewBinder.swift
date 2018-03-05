@@ -9,9 +9,19 @@
 import Flexy
 
 class ContactViewBinder: ViewBinder {
+    private let clickHandler: ((ContactItemModel) -> ())?
+    
+    init(_ handler: ((ContactItemModel) -> ())? = nil) {
+        clickHandler = handler
+    }
+    
     func bind(model: ContactItemModel, to cell: ContactTableViewCell) {
         cell.contactNameLabel.text = model.name
         cell.contactPhotoImageView.image = model.photo
+    }
+    
+    func onItemSelect(item: ContactItemModel) {
+        clickHandler?(item)
     }
     
     var cellIdentifier: String {

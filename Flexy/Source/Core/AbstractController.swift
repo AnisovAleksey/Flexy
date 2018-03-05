@@ -40,13 +40,6 @@ open class AbstractController: NSObject {
         }
     }
     
-    public final func unregister<VB: ViewBinder>(binder: VB) {
-        if (binder.shouldRegisterCells) {
-            cellProvider?.unregister(id: binder.cellIdentifier)
-        }
-        viewBinders.removeValue(forKey: binder.modelType)
-    }
-    
     public final func reuseCell<CellType: Flexy.View>(for index: Flexy.Index, from cellProvider: CellProvider) -> CellType {
         let model = itemModels[index.item]
         
@@ -63,6 +56,16 @@ open class AbstractController: NSObject {
         } catch let error {
             fatalError(error.localizedDescription)
         }
+    }
+    
+    public final func didClickOnItem(on index: Flexy.Index) {
+        let model = itemModels[index.item]
+        
+        guard let viewBinder = self.viewBinders[model.itemId] else {
+            fatalError("Can't find ViewBinder for key '\(model.itemId)'")
+        }
+        
+        viewBinder.handleClick(onItem: model)
     }
 }
 

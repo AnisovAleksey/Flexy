@@ -12,6 +12,8 @@ public protocol ViewBinder {
     
     func bind(model: Model, to cell: Cell)
     
+    func onItemSelect(item: Model)
+    
     var modelType: String { get }
     
     var cellIdentifier: String { get }
@@ -20,6 +22,10 @@ public protocol ViewBinder {
 }
 
 extension ViewBinder {
+    public func onItemSelect(item: Model) {
+        // no-op
+    }
+    
     public var modelType: String {
         return Model.itemId
     }

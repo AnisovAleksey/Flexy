@@ -16,8 +16,4 @@ extension UITableView: CellProvider {
     public func register(type: AnyClass, forId id: String) {
         register(type, forCellReuseIdentifier: id)
     }
-    
-    public func unregister(id: String) {
-        register(nil as AnyClass?, forCellReuseIdentifier: id)
-    }
 }

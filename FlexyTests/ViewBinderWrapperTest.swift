@@ -96,10 +96,6 @@ private class TestCellProvider: CellProvider {
     func register(type: AnyClass, forId id: String) {
         registered = (type, id)
     }
-    
-    func unregister(id: String) {
-        
-    }
 
     func reuseCell(for index: Flexy.Index, with type: String) -> Flexy.View {
         return Flexy.View()

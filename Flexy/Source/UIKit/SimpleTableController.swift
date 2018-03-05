@@ -10,6 +10,7 @@ import UIKit
 
 public class SimpleTableController: AbstractController, UITableViewDelegate, UITableViewDataSource {
     private weak var tableView: UITableView?
+    public weak var tableViewDelegate: UITableViewDelegate?
     
     public override var itemModels: [ItemModel] {
         didSet {
@@ -33,5 +34,21 @@ public class SimpleTableController: AbstractController, UITableViewDelegate, UIT
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return reuseCell(for: Flexy.Index(section: indexPath.section, item: indexPath.row), from: tableView)
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didClickOnItem(on: Flexy.Index(section: indexPath.section, item: indexPath.row))
+        
+        tableViewDelegate?.tableView?(tableView, didSelectRowAt: indexPath)
+    }
+    
+    public override func responds(to selector: Selector!) -> Bool {
+        let haveSelector = super.responds(to: selector)
+        
+        if !haveSelector,
+            let delegate = tableViewDelegate {
+            return delegate.responds(to: selector)
+        }
+        return haveSelector
     }
 }

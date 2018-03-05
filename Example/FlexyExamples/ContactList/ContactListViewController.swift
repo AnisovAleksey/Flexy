@@ -9,7 +9,7 @@
 import UIKit
 import Flexy
 
-class ViewController: UIViewController {
+class ContactListViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     
     private lazy var tableController: SimpleTableController = SimpleTableController(tableView: tableView)
@@ -17,7 +17,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        tableController.register(binder: ContactViewBinder())
+        tableController.register(binder: ContactViewBinder({[weak self] item in
+            let contactItemViewController = ContactItemViewController()
+            contactItemViewController.loadViewIfNeeded()
+            contactItemViewController.avatarImage = item.photo
+            contactItemViewController.name = item.name
+            
+            self?.show(contactItemViewController, sender: nil)
+        }))
+        tableController.tableViewDelegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -34,6 +42,12 @@ class ViewController: UIViewController {
             ContactItemModel(photo: UIImage(named: "avatar2")!, name: "Corwin"),
             ContactItemModel(photo: UIImage(named: "avatar3")!, name: "Christopher"),
         ]
+    }
+}
+
+extension ContactListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

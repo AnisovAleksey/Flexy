@@ -10,6 +10,8 @@
 protocol _ViewBinder {
     func tryToBind<CellType: Flexy.View>(model: ItemModel, to view: CellType) throws -> CellType
     
+    func handleClick(onItem item: ItemModel)
+    
     var cellIdentifier: String { get }
     
     var cellType: AnyClass { get }
@@ -34,6 +36,11 @@ final class ViewBinderWrapper<Binder: ViewBinder>: _ViewBinder {
         viewBinder.bind(model: castedModel, to: castedCell)
         
         return view
+    }
+    
+    func handleClick(onItem item: ItemModel) {
+        guard let castedItem = item as? Binder.Model else { return }
+        viewBinder.onItemSelect(item: castedItem)
     }
     
     var cellIdentifier: String {

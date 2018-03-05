@@ -10,6 +10,4 @@ public protocol CellProvider: class {
     func reuseCell(for index: Flexy.Index, with type: String) -> Flexy.View
     
     func register(type: AnyClass, forId id: String)
-    
-    func unregister(id: String)
 }
