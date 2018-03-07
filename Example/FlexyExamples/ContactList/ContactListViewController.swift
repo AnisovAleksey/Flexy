@@ -18,7 +18,8 @@ class ContactListViewController: UIViewController {
         super.viewDidLoad()
     
         tableController.register(binder: ContactViewBinder({[weak self] item in
-            let contactItemViewController = ContactItemViewController()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let contactItemViewController = storyboard.instantiateViewController(withIdentifier: "ContactInfoViewController") as? ContactItemViewController else { return }
             contactItemViewController.loadViewIfNeeded()
             contactItemViewController.avatarImage = item.photo
             contactItemViewController.name = item.name
