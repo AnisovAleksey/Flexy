@@ -1,6 +1,9 @@
 # Flexy
 
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/Flexy.svg?style=flat)](http://cocoapods.org/pods/Flexy)
+[![License](https://img.shields.io/cocoapods/l/Flexy.svg?style=flat)](http://cocoapods.org/pods/Flexy)
+[![Platform](https://img.shields.io/cocoapods/p/Flexy.svg?style=flat)](http://cocoapods.org/pods/Flexy)
+[![Swift Version](https://img.shields.io/badge/Swift-4.0.3-F16D39.svg?style=flat)](https://developer.apple.com/swift)
 
 Framework for constructing flexible datasource for UICollectionView and UITableView
 
