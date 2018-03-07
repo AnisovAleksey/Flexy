@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 				Flexy is a framework that provides convenient API for UICollectionView and UITableView datasource, allow to use multiple types cell very easy.
 				DESC
 	s.homepage		= "https://github.com/AnisovAleksey/Flexy"
-	s.license		= "MIT"
+	s.license		= { :type => "MIT", :file => "LICENSE.txt" }
 	s.author		= "Anisov Aleksey"
 	s.source		= { :git => "https://github.com/AnisovAleksey/Flexy.git", :tag => s.version.to_s }
 	
