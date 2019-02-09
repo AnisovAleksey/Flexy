@@ -59,11 +59,7 @@ open class AbstractController<ModelProvider: ItemModelProvider>: NSObject {
     }
     
     public final func bind<CellType: Flexy.View>(cell: CellType, with model: ItemModel) -> CellType {
-        do {
-            return try viewBinder(for: model).tryToBind(model: model, to: cell)
-        } catch let error {
-            fatalError(error.localizedDescription)
-        }
+        return viewBinder(for: model).tryToBind(model: model, to: cell)
     }
     
     open func onItemsChange() {

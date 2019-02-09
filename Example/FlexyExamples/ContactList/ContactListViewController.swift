@@ -26,13 +26,12 @@ class ContactListViewController: UIViewController {
             
             self?.show(contactItemViewController, sender: nil)
         }))
-        tableController.tableViewDelegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        tableController.itemModels = [
+        tableController.items = [
             ContactItemModel(photo: UIImage(named: "avatar1")!, name: "Marie"),
             ContactItemModel(photo: UIImage(named: "avatar3")!, name: "Benjamin"),
             ContactItemModel(photo: UIImage(named: "avatar1")!, name: "Sofia"),
@@ -43,12 +42,6 @@ class ContactListViewController: UIViewController {
             ContactItemModel(photo: UIImage(named: "avatar2")!, name: "Corwin"),
             ContactItemModel(photo: UIImage(named: "avatar3")!, name: "Christopher"),
         ]
-    }
-}
-
-extension ContactListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
