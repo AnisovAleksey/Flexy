@@ -10,7 +10,7 @@ import XCTest
 @testable import Flexy
 
 class AbstractControllerTest: XCTestCase {
-    private let controller = AbstractController()
+    private let controller = AbstractController(modelProvider: PlainModelProvider(itemModels: []))
     private let cellProvider = TestCellProvider()
     
     override func setUp() {
@@ -24,7 +24,7 @@ class AbstractControllerTest: XCTestCase {
         let binder = TestViewBinder(shouldRegisterCells: true)
         
         // When
-        try! controller._register(binder: binder)
+        controller.register(binder: binder)
         
         // Then
         XCTAssertTrue(cellProvider.registered!.0 == UITableViewCell.self)
@@ -36,50 +36,11 @@ class AbstractControllerTest: XCTestCase {
         let binder = TestViewBinder()
         
         // When
-        try! controller._register(binder: binder)
+        controller.register(binder: binder)
         
         // Then
         XCTAssertTrue(cellProvider.registered == nil)
         XCTAssertTrue(controller.viewBinders.contains(where: { $0.key == binder.modelType }))
-    }
-    
-    func test_registerTheSameViewBinder() {
-        // Given
-        let binder = TestViewBinder()
-        let binder2 = TestViewBinder()
-        try! controller._register(binder: binder)
-        
-        // When
-        do {
-            try controller._register(binder: binder2)
-        } catch let error {
-         
-        // Then
-            guard let registrationError = error as? ViewBinderRegistrationError,
-                case .viewBinderAlreadyExist( _) = registrationError else {
-                    XCTFail()
-                    return
-            }
-        }
-    }
-    
-    func test_registerViewBinderWithNilCellProvider() {
-        // Given
-        let binder = TestViewBinder()
-        controller.cellProvider = TestCellProvider()
-        
-        // When
-        do {
-            try controller._register(binder: binder)
-        } catch let error {
-        
-        // Then
-            guard let registrationError = error as? ViewBinderRegistrationError,
-                case .cellProviderNotAvailable = registrationError else {
-                    XCTFail()
-                    return
-            }
-        }
     }
     
     func test_successRegistrationBinderWithCustomCellId() {
@@ -87,7 +48,7 @@ class AbstractControllerTest: XCTestCase {
         let binder = IdentifiedViewBinder()
         
         // When
-        try! controller._register(binder: binder)
+        controller.register(binder: binder)
         
         // Then
         XCTAssertTrue(cellProvider.registered!.0 == UITableViewCell.self)

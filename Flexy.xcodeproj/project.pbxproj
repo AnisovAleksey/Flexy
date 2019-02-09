@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F7D8A29220F56FF000A11EA /* CompositionItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D8A22220F56FE000A11EA /* CompositionItemModel.swift */; };
+		1F7D8A2A220F56FF000A11EA /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D8A23220F56FE000A11EA /* ItemModel.swift */; };
+		1F7D8A2B220F56FF000A11EA /* SectionItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D8A24220F56FE000A11EA /* SectionItemModel.swift */; };
+		1F7D8A2C220F56FF000A11EA /* PlainModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D8A26220F56FE000A11EA /* PlainModelProvider.swift */; };
+		1F7D8A2D220F56FF000A11EA /* SectionedModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D8A27220F56FE000A11EA /* SectionedModelProvider.swift */; };
+		1F7D8A2E220F56FF000A11EA /* ItemModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D8A28220F56FE000A11EA /* ItemModelProvider.swift */; };
+		1F7D8A30220F570A000A11EA /* SectionedTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D8A2F220F570A000A11EA /* SectionedTableController.swift */; };
 		1FF5C40E2049BC2900AE00FB /* Flexy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FF5C4042049BC2900AE00FB /* Flexy.framework */; };
 		1FF5C4222049BD0500AE00FB /* ViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C4212049BD0500AE00FB /* ViewBinder.swift */; };
-		1FF5C4242049BD3600AE00FB /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C4232049BD3600AE00FB /* ItemModel.swift */; };
 		1FF5C4262049BD5200AE00FB /* CellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C4252049BD5200AE00FB /* CellProvider.swift */; };
 		1FF5C4282049BD8A00AE00FB /* AbstractController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C4272049BD8A00AE00FB /* AbstractController.swift */; };
-		1FF5C42A2049C06000AE00FB /* ItemModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C4292049C06000AE00FB /* ItemModelTest.swift */; };
-		1FF5C42D2049C23E00AE00FB /* TextError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C42C2049C23E00AE00FB /* TextError.swift */; };
 		1FF5C42F2049C39200AE00FB /* ViewBinderWrapperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C42E2049C39200AE00FB /* ViewBinderWrapperTest.swift */; };
 		1FF5C4312049CB1300AE00FB /* _ViewBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C4302049CB1300AE00FB /* _ViewBinder.swift */; };
 		1FF5C4352049D7DA00AE00FB /* AbstractControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF5C4342049D7DA00AE00FB /* AbstractControllerTest.swift */; };
@@ -35,16 +39,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F7D8A22220F56FE000A11EA /* CompositionItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionItemModel.swift; sourceTree = "<group>"; };
+		1F7D8A23220F56FE000A11EA /* ItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		1F7D8A24220F56FE000A11EA /* SectionItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionItemModel.swift; sourceTree = "<group>"; };
+		1F7D8A26220F56FE000A11EA /* PlainModelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainModelProvider.swift; sourceTree = "<group>"; };
+		1F7D8A27220F56FE000A11EA /* SectionedModelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionedModelProvider.swift; sourceTree = "<group>"; };
+		1F7D8A28220F56FE000A11EA /* ItemModelProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemModelProvider.swift; sourceTree = "<group>"; };
+		1F7D8A2F220F570A000A11EA /* SectionedTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionedTableController.swift; sourceTree = "<group>"; };
 		1FF5C4042049BC2900AE00FB /* Flexy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Flexy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FF5C4082049BC2900AE00FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FF5C40D2049BC2900AE00FB /* FlexyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlexyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FF5C4142049BC2900AE00FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FF5C4212049BD0500AE00FB /* ViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBinder.swift; sourceTree = "<group>"; };
-		1FF5C4232049BD3600AE00FB /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		1FF5C4252049BD5200AE00FB /* CellProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProvider.swift; sourceTree = "<group>"; };
 		1FF5C4272049BD8A00AE00FB /* AbstractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractController.swift; sourceTree = "<group>"; };
-		1FF5C4292049C06000AE00FB /* ItemModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModelTest.swift; sourceTree = "<group>"; };
-		1FF5C42C2049C23E00AE00FB /* TextError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextError.swift; sourceTree = "<group>"; };
 		1FF5C42E2049C39200AE00FB /* ViewBinderWrapperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBinderWrapperTest.swift; sourceTree = "<group>"; };
 		1FF5C4302049CB1300AE00FB /* _ViewBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _ViewBinder.swift; sourceTree = "<group>"; };
 		1FF5C4342049D7DA00AE00FB /* AbstractControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractControllerTest.swift; sourceTree = "<group>"; };
@@ -74,6 +82,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F7D8A21220F56FE000A11EA /* ItemModel */ = {
+			isa = PBXGroup;
+			children = (
+				1F7D8A22220F56FE000A11EA /* CompositionItemModel.swift */,
+				1F7D8A23220F56FE000A11EA /* ItemModel.swift */,
+				1F7D8A24220F56FE000A11EA /* SectionItemModel.swift */,
+			);
+			path = ItemModel;
+			sourceTree = "<group>";
+		};
+		1F7D8A25220F56FE000A11EA /* ModelProvider */ = {
+			isa = PBXGroup;
+			children = (
+				1F7D8A26220F56FE000A11EA /* PlainModelProvider.swift */,
+				1F7D8A27220F56FE000A11EA /* SectionedModelProvider.swift */,
+				1F7D8A28220F56FE000A11EA /* ItemModelProvider.swift */,
+			);
+			path = ModelProvider;
+			sourceTree = "<group>";
+		};
 		1FF5C3FA2049BC2900AE00FB = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				1FF5C4142049BC2900AE00FB /* Info.plist */,
-				1FF5C4292049C06000AE00FB /* ItemModelTest.swift */,
 				1FF5C42E2049C39200AE00FB /* ViewBinderWrapperTest.swift */,
 				1FF5C4342049D7DA00AE00FB /* AbstractControllerTest.swift */,
 			);
@@ -124,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				54F3BA44204D034C00E4BC45 /* UIKit */,
-				1FF5C42B2049C22400AE00FB /* Util */,
 				1FF5C4202049BCF900AE00FB /* Core */,
 				54F3BA40204CEDCA00E4BC45 /* Flexy.swift */,
 			);
@@ -134,9 +160,10 @@
 		1FF5C4202049BCF900AE00FB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1F7D8A21220F56FE000A11EA /* ItemModel */,
+				1F7D8A25220F56FE000A11EA /* ModelProvider */,
 				1FF5C4212049BD0500AE00FB /* ViewBinder.swift */,
 				1FF5C4302049CB1300AE00FB /* _ViewBinder.swift */,
-				1FF5C4232049BD3600AE00FB /* ItemModel.swift */,
 				1FF5C4252049BD5200AE00FB /* CellProvider.swift */,
 				1FF5C4272049BD8A00AE00FB /* AbstractController.swift */,
 				54F3BA3E204CED1B00E4BC45 /* View.swift */,
@@ -145,17 +172,10 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		1FF5C42B2049C22400AE00FB /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				1FF5C42C2049C23E00AE00FB /* TextError.swift */,
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
 		54F3BA44204D034C00E4BC45 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				1F7D8A2F220F570A000A11EA /* SectionedTableController.swift */,
 				54F3BA45204D036400E4BC45 /* SimpleTableController.swift */,
 				54F3BA47204D03E700E4BC45 /* TableView+CellProvider.swift */,
 			);
@@ -272,15 +292,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7D8A2E220F56FF000A11EA /* ItemModelProvider.swift in Sources */,
 				1FF5C4312049CB1300AE00FB /* _ViewBinder.swift in Sources */,
 				1FF5C4262049BD5200AE00FB /* CellProvider.swift in Sources */,
-				1FF5C42D2049C23E00AE00FB /* TextError.swift in Sources */,
-				1FF5C4242049BD3600AE00FB /* ItemModel.swift in Sources */,
+				1F7D8A30220F570A000A11EA /* SectionedTableController.swift in Sources */,
+				1F7D8A2B220F56FF000A11EA /* SectionItemModel.swift in Sources */,
 				1FF5C4222049BD0500AE00FB /* ViewBinder.swift in Sources */,
 				54F3BA43204CEE4900E4BC45 /* Index.swift in Sources */,
+				1F7D8A2D220F56FF000A11EA /* SectionedModelProvider.swift in Sources */,
+				1F7D8A2A220F56FF000A11EA /* ItemModel.swift in Sources */,
 				54F3BA48204D03E700E4BC45 /* TableView+CellProvider.swift in Sources */,
 				54F3BA46204D036500E4BC45 /* SimpleTableController.swift in Sources */,
 				54F3BA3F204CED1B00E4BC45 /* View.swift in Sources */,
+				1F7D8A2C220F56FF000A11EA /* PlainModelProvider.swift in Sources */,
+				1F7D8A29220F56FF000A11EA /* CompositionItemModel.swift in Sources */,
 				54F3BA41204CEDCA00E4BC45 /* Flexy.swift in Sources */,
 				1FF5C4282049BD8A00AE00FB /* AbstractController.swift in Sources */,
 			);
@@ -292,7 +317,6 @@
 			files = (
 				1FF5C4352049D7DA00AE00FB /* AbstractControllerTest.swift in Sources */,
 				1FF5C42F2049C39200AE00FB /* ViewBinderWrapperTest.swift in Sources */,
-				1FF5C42A2049C06000AE00FB /* ItemModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

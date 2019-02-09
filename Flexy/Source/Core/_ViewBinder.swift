@@ -8,7 +8,7 @@
 
 
 protocol _ViewBinder {
-    func tryToBind<CellType: Flexy.View>(model: ItemModel, to view: CellType) throws -> CellType
+    func tryToBind<CellType: Flexy.View>(model: ItemModel, to view: CellType) -> CellType
     
     func handleClick(onItem item: ItemModel)
     
@@ -24,13 +24,13 @@ final class ViewBinderWrapper<Binder: ViewBinder>: _ViewBinder {
         self.viewBinder = viewBinder
     }
     
-    func tryToBind<CellType: Flexy.View>(model: ItemModel, to view: CellType) throws -> CellType {
+    func tryToBind<CellType: Flexy.View>(model: ItemModel, to view: CellType) -> CellType {
         guard let castedModel: Binder.Model = model as? Binder.Model else {
-            throw ViewBinderError.incorrectModelType(type(of: self))
+            fatalError("Incorrect model type in ViewBinder: \(type(of: self))")
         }
         
         guard let castedCell: Binder.Cell = view as? Binder.Cell else {
-            throw ViewBinderError.incorrectCellType(type(of: self))
+            fatalError("Incorrect cell type in ViewBinder: \(type(of: self))")
         }
         
         viewBinder.bind(model: castedModel, to: castedCell)
@@ -49,19 +49,5 @@ final class ViewBinderWrapper<Binder: ViewBinder>: _ViewBinder {
     
     var cellType: AnyClass {
         return Binder.Cell.self
-    }
-}
-
-enum ViewBinderError: Error {
-    case incorrectModelType(Any.Type)
-    case incorrectCellType(Any.Type)
-    
-    var localizedDescription: String {
-        switch self {
-        case .incorrectCellType(let type):
-            return "Incorrect cell type in ViewBinder: \(type)"
-        case .incorrectModelType(let type):
-            return "Incorrect model type in ViewBinder: \(type)"
-        }
     }
 }

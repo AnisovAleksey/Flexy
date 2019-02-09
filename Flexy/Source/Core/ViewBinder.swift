@@ -35,6 +35,6 @@ extension ViewBinder {
     }
     
     public var shouldRegisterCells: Bool {
-        return false
+        return true
     }
 }

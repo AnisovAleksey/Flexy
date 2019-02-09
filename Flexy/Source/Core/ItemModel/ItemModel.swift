@@ -14,7 +14,7 @@ public protocol ItemModel {
 
 extension ItemModel {
     public static var itemId: String {
-        return String(describing: self)
+        return String(reflecting: type(of: self))
     }
     
     public var itemId: String {
