@@ -6,7 +6,7 @@
 //  Copyright © 2018 Aleksey Anisov. All rights reserved.
 //
 
-public protocol CellProvider: class {
+public protocol CellProvider: AnyObject {
     func reuseCell(for index: Flexy.Index, with type: String) -> Flexy.View
     
     func register(type: AnyClass, forId id: String)
