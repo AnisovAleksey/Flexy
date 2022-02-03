@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name			= "Flexy"
-	s.version		= "0.2.0"
+	s.version		= "0.3.0"
 	s.summary		= "Framework for constructing flexible datasource for UICollectionView and UITableView"
 	s.description		= <<-DESC
 				Flexy is a framework that provides convenient API for UICollectionView and UITableView datasource, allow to use multiple types cell very easy.
@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
 	s.source		= { :git => "https://github.com/AnisovAleksey/Flexy.git", :tag => s.version.to_s }
 	
 	s.source_files 		= "Flexy/Source/**/*.swift"
-	s.ios.deployment_target	= "8.0"
+	s.ios.deployment_target	= "9.0"
 	s.requires_arc		= true
 end
